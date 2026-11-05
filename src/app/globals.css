@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 :root {
+  color-scheme: dark;
   --bg: #070709;
   --bg-elev: #0e1015;
   --paper: #ebe5da;
@@ -8,6 +9,8 @@
   --fg: #f5f2eb;
   --muted: #8e8b82;
   --accent: #d4ff3a;
+  --accent-rgb: 212, 255, 58;
+  --secondary-rgb: 41, 107, 71;
   --danger: #ff5e36;
   --line: rgba(245, 242, 235, 0.11);
   --line-strong: rgba(245, 242, 235, 0.24);
@@ -27,6 +30,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -87,14 +91,13 @@ button {
 body::after {
   content: "";
   position: fixed;
-  inset: -50%;
-  width: 200%;
-  height: 200%;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
   z-index: 900;
-  opacity: 0.04;
+  opacity: 0.035;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-  animation: grain 7s steps(8) infinite;
 }
 
 @keyframes grain {
@@ -490,12 +493,19 @@ body.cursor-label-mode .cursor-dot {
 }
 
 .hero-canvas {
-  position: absolute;
+  position: fixed;
   inset: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100lvh;
   z-index: 0;
   opacity: 0.92;
+  pointer-events: none;
+  background-color: #070709;
+}
+
+main#top {
+  position: relative;
+  z-index: 2;
 }
 
 .hero-grid-overlay {
@@ -926,6 +936,13 @@ body.cursor-label-mode .cursor-dot {
   position: relative;
   padding: clamp(5.5rem, 11vw, 10rem) var(--pad-x);
   border-bottom: 1px solid var(--line);
+  background: radial-gradient(
+      circle at 85% 15%,
+      rgba(var(--accent-rgb), 0.08) 0%,
+      rgba(var(--secondary-rgb), 0.06) 38%,
+      transparent 72%
+    ),
+    rgba(7, 7, 9, 0.82);
 }
 
 .section-head {
@@ -1053,8 +1070,8 @@ body.cursor-label-mode .cursor-dot {
 }
 
 .p-badge.opensource {
-  background: rgba(212, 255, 58, 0.1);
-  border: 1px solid rgba(212, 255, 58, 0.32);
+  background: rgba(var(--accent-rgb), 0.1);
+  border: 1px solid rgba(var(--accent-rgb), 0.35);
   color: var(--accent);
 }
 
@@ -1181,7 +1198,7 @@ body.cursor-label-mode .cursor-dot {
   gap: 0.45rem;
   min-height: 40px;
   padding: 0.5rem 1rem;
-  background: rgba(212, 255, 58, 0.12);
+  background: rgba(var(--accent-rgb), 0.12);
   border: 1px solid var(--accent);
   color: var(--accent);
   border-radius: 999px;
@@ -1307,7 +1324,13 @@ body.cursor-label-mode .cursor-dot {
    ============================================================ */
 .journey {
   position: relative;
-  background: var(--bg-elev);
+  background: radial-gradient(
+      circle at 20% 25%,
+      rgba(var(--accent-rgb), 0.08) 0%,
+      rgba(var(--secondary-rgb), 0.06) 40%,
+      transparent 75%
+    ),
+    rgba(14, 16, 21, 0.86);
   border-bottom: 1px solid var(--line);
 }
 
@@ -1429,8 +1452,16 @@ body.cursor-label-mode .cursor-dot {
    06 / TECHNICAL ARSENAL & CREDENTIALS (#arsenal)
    ============================================================ */
 .arsenal {
+  position: relative;
   padding: clamp(5.5rem, 11vw, 10rem) var(--pad-x);
   border-bottom: 1px solid var(--line);
+  background: radial-gradient(
+      circle at 80% 20%,
+      rgba(var(--accent-rgb), 0.09) 0%,
+      rgba(var(--secondary-rgb), 0.07) 42%,
+      transparent 75%
+    ),
+    rgba(7, 7, 9, 0.82);
 }
 
 .arsenal-layout {
@@ -1450,15 +1481,27 @@ body.cursor-label-mode .cursor-dot {
   text-align: left;
   padding: 1.35rem 1rem;
   border-bottom: 1px solid var(--line);
+  background: rgba(7, 7, 9, 0.65);
+  color: var(--fg);
   display: flex;
   align-items: baseline;
   gap: 1rem;
   transition: background 0.3s, padding-left 0.3s var(--ease-out);
 }
 
+.pillar-tab:focus,
+.pillar-tab:active {
+  background: rgba(var(--accent-rgb), 0.12);
+  color: var(--fg);
+}
+
 .pillar-tab.is-active {
-  background: rgba(212, 255, 58, 0.07);
-  border-left: 2px solid var(--accent);
+  background: linear-gradient(
+    90deg,
+    rgba(var(--accent-rgb), 0.15) 0%,
+    rgba(var(--secondary-rgb), 0.08) 100%
+  );
+  border-left: 3px solid var(--accent);
   padding-left: 1.35rem;
 }
 
@@ -1538,7 +1581,11 @@ body.cursor-label-mode .cursor-dot {
 .cv-showcase-card {
   padding: 2.25rem;
   border: 1px solid var(--accent);
-  background: linear-gradient(145deg, rgba(212, 255, 58, 0.08), rgba(14, 16, 21, 0.9));
+  background: linear-gradient(
+    145deg,
+    rgba(var(--accent-rgb), 0.1),
+    rgba(14, 16, 21, 0.92)
+  );
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1549,8 +1596,14 @@ body.cursor-label-mode .cursor-dot {
    07 / MONUMENTAL CONTACT FOOTER (#contato)
    ============================================================ */
 .site-footer {
+  position: relative;
   padding: clamp(5.5rem, 11vw, 10rem) var(--pad-x) 3rem;
-  background: var(--bg);
+  background: radial-gradient(
+      circle at 50% 0%,
+      rgba(var(--accent-rgb), 0.08) 0%,
+      transparent 65%
+    ),
+    rgba(7, 7, 9, 0.86);
 }
 
 .footer-kicker {
@@ -1735,9 +1788,14 @@ body {
     flex-direction: column;
     gap: 1.15rem;
     padding: 1.35rem 1.15rem 1.6rem;
-    background: var(--bg-elev);
-    border-bottom: 1px solid var(--line-strong);
-    border-left: 2px solid var(--accent);
+    background: linear-gradient(
+        165deg,
+        rgba(var(--accent-rgb), 0.1) 0%,
+        rgba(14, 16, 21, 0.96) 55%
+      ),
+      #0e1015;
+    border-bottom: 1px solid rgba(var(--accent-rgb), 0.35);
+    border-left: 3px solid var(--accent);
     animation: modalFadeIn 0.25s var(--ease-out);
   }
 

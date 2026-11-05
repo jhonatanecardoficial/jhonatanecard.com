@@ -78,9 +78,19 @@ export default function PortfolioApp() {
   const lenisRef = useRef<Lenis | null>(null);
   const modalCloseBtnRef = useRef<HTMLButtonElement | null>(null);
 
-  // Sync CSS --accent variable when theme changes
+  // Sync CSS --accent, --accent-rgb, and --secondary-rgb variables when theme changes
   useEffect(() => {
-    document.documentElement.style.setProperty('--accent', activeTheme.hex);
+    const root = document.documentElement;
+    const r = Math.round(activeTheme.rgb[0] * 255);
+    const g = Math.round(activeTheme.rgb[1] * 255);
+    const b = Math.round(activeTheme.rgb[2] * 255);
+    const sr = Math.round(activeTheme.secondaryRgb[0] * 255);
+    const sg = Math.round(activeTheme.secondaryRgb[1] * 255);
+    const sb = Math.round(activeTheme.secondaryRgb[2] * 255);
+
+    root.style.setProperty('--accent', activeTheme.hex);
+    root.style.setProperty('--accent-rgb', `${r}, ${g}, ${b}`);
+    root.style.setProperty('--secondary-rgb', `${sr}, ${sg}, ${sb}`);
   }, [activeTheme]);
 
   // 1. Preloader sequence (000 -> 100) + clean unmount
@@ -576,12 +586,14 @@ export default function PortfolioApp() {
         </div>
       </header>
 
+      {/* GLOBAL PERSISTENT WEBGL SHADER BACKGROUND */}
+      <WebGLHeroCanvas theme={activeTheme} />
+
       <main id="top">
         {/* ============================================================
             01 / HERO STAGE (WEBGL SHADER + VARIABLE FONT + PORTRAIT)
            ============================================================ */}
         <section className="hero">
-          <WebGLHeroCanvas theme={activeTheme} />
           <div className="hero-grid-overlay" aria-hidden="true" />
 
           <div className="hero-top">
