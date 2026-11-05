@@ -649,9 +649,9 @@ export const portfolioData: Record<Locale, PortfolioContent> = {
           ],
         },
       ],
-      credentialsTitle: 'Formação Acadêmica & Certificações',
+      credentialsTitle: 'Formação Acadêmica',
       credentialsSubtitle:
-        'Compromisso contínuo entre fundamentação acadêmica formal e prática intensiva de mercado.',
+        'Especialização acadêmica contínua em Engenharia de Software, Ciência da Computação e Inteligência Artificial Aplicada.',
       cvCardTitle: 'Currículo Executivo (PDF)',
       cvCardDesc:
         'Versão de 1 página diagramada para recrutadores e líderes técnicos, contendo histórico completo na CI&T Lisboa, projetos de IA e formação acadêmica.',
@@ -680,14 +680,6 @@ export const portfolioData: Record<Locale, PortfolioContent> = {
           badge: 'CONCLUÍDO',
           detail:
             'Bacharelado em Ciência da Computação e Tecnologia da Informação — algoritmos, estruturas de dados, engenharia de software, redes e sistemas distribuídos.',
-        },
-        {
-          period: 'Certificações',
-          title: 'Scrum Foundation (SFPC) · DevOps Essentials · AI Skills',
-          institution: 'CertiProf · Microsoft · LinkedIn Learning',
-          badge: 'VERIFICADO',
-          detail:
-            'Certificações em cultura ágil, práticas de DevOps, cibersegurança e IA generativa.',
         },
       ],
     },
@@ -1200,9 +1192,9 @@ export const portfolioData: Record<Locale, PortfolioContent> = {
           ],
         },
       ],
-      credentialsTitle: 'Academic Education & Certifications',
+      credentialsTitle: 'Academic Education',
       credentialsSubtitle:
-        'Continuous commitment combining formal academic specialization with intensive market practice.',
+        'Continuous formal academic education in Computer Science, Software Engineering, and Applied Artificial Intelligence.',
       cvCardTitle: 'Executive Resume (PDF)',
       cvCardDesc:
         '1-page executive resume tailored for recruiters and engineering leaders, detailing my 4.5 years at CI&T Lisbon, AI projects, and academic background.',
@@ -1231,14 +1223,6 @@ export const portfolioData: Record<Locale, PortfolioContent> = {
           badge: 'COMPLETED',
           detail:
             'Bachelor of Science in Computer Science and Information Technology — algorithms, data structures, software engineering, networking, and distributed systems.',
-        },
-        {
-          period: 'Certifications',
-          title: 'Scrum Foundation (SFPC) · DevOps Essentials · AI Skills',
-          institution: 'CertiProf · Microsoft · LinkedIn Learning',
-          badge: 'VERIFIED',
-          detail:
-            'Certifications in agile delivery, DevOps practices, cybersecurity, and generative AI.',
         },
       ],
     },

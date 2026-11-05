@@ -443,6 +443,37 @@ body.cursor-label-mode .cursor-dot {
   background: var(--accent);
 }
 
+.lang-switch-pill {
+  gap: 0.45rem;
+}
+
+.lang-opt {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.32rem;
+  opacity: 0.55;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.lang-opt.is-active {
+  opacity: 1;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.lang-sep {
+  opacity: 0.35;
+}
+
+.lang-flag-svg {
+  width: 15px;
+  height: 11px;
+  border-radius: 2px;
+  display: inline-block;
+  vertical-align: middle;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+
 /* ============================================================
    01 / HERO STAGE (WEBGL + VARIABLE FONT PROXIMITY + PORTRAIT)
    ============================================================ */
@@ -1468,6 +1499,22 @@ body.cursor-label-mode .cursor-dot {
   align-items: center;
 }
 
+.pillar-tab-chevron {
+  display: none;
+  font-family: var(--f-mono);
+  font-size: 1.15rem;
+  color: var(--accent);
+  margin-left: 0.75rem;
+}
+
+.pillar-mobile-body {
+  display: none;
+}
+
+.journey-mobile-controls {
+  display: none;
+}
+
 .credentials-grid {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
@@ -1478,8 +1525,8 @@ body.cursor-label-mode .cursor-dot {
 
 .cred-list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.25rem;
+  grid-template-columns: 1fr;
+  gap: 1rem;
 }
 
 .cred-card {
@@ -1667,16 +1714,131 @@ body {
   .project-preview {
     display: none;
   }
+
+  /* 1. #arsenal: Encapsulated Accordion per Pillar on Mobile/Tablet */
+  .desktop-only-panel {
+    display: none !important;
+  }
+
+  .pillar-tab {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .pillar-tab-chevron {
+    display: inline-flex;
+  }
+
+  .pillar-mobile-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+    padding: 1.35rem 1.15rem 1.6rem;
+    background: var(--bg-elev);
+    border-bottom: 1px solid var(--line-strong);
+    border-left: 2px solid var(--accent);
+    animation: modalFadeIn 0.25s var(--ease-out);
+  }
+
+  .pillar-mobile-kicker {
+    font-family: var(--f-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .pillar-mobile-desc {
+    font-size: 0.92rem;
+    line-height: 1.62;
+    color: rgba(245, 242, 235, 0.85);
+  }
+
+  .pillar-mobile-deliverables {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    font-size: 0.86rem;
+    color: var(--fg);
+  }
+
+  .pillar-mobile-deliverables li {
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+  }
+
+  /* 2. #jornada: Horizontal Touch-Swipe Carousel on Mobile/Tablet */
   .journey-pin {
     min-height: auto;
+    padding: 4.5rem var(--pad-x) 3.5rem;
   }
+
   .journey-track {
-    flex-direction: column;
-    width: 100%;
+    flex-direction: row !important;
+    width: 100% !important;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    gap: 1rem;
+    padding: 1.5rem 0 1.25rem;
+    scrollbar-width: none;
   }
+
+  .journey-track::-webkit-scrollbar {
+    display: none;
+  }
+
   .journey-card {
-    width: 100%;
-    min-height: auto;
+    flex: 0 0 85vw;
+    max-width: 380px;
+    min-height: 370px;
+    scroll-snap-align: center;
+    padding: 1.5rem;
+  }
+
+  .journey-mobile-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.85rem;
+    font-family: var(--f-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+  }
+
+  .journey-mobile-counter {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .journey-dots {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+  }
+
+  .journey-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: rgba(245, 242, 235, 0.22);
+    transition: width 0.25s ease, background 0.25s ease;
+  }
+
+  .journey-dot.is-active {
+    width: 22px;
+    background: var(--accent);
+  }
+
+  .journey-swipe-hint {
+    color: var(--accent);
   }
 }
 

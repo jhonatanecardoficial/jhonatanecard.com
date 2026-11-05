@@ -14,6 +14,41 @@ import {
 import WebGLHeroCanvas from '@/components/WebGLHeroCanvas';
 import ProjectArtwork from '@/components/ProjectArtwork';
 
+const FlagPT = () => (
+  <svg
+    width="16"
+    height="12"
+    viewBox="0 0 24 18"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="lang-flag-svg"
+    aria-hidden="true"
+  >
+    <rect width="24" height="18" rx="2" fill="#DA291C" />
+    <rect width="9.6" height="18" rx="1" fill="#006600" />
+    <circle cx="9.6" cy="9" r="3.2" fill="#FFCC00" />
+    <rect x="8.2" y="7.6" width="2.8" height="2.8" rx="0.6" fill="#FFFFFF" />
+  </svg>
+);
+
+const FlagGB = () => (
+  <svg
+    width="16"
+    height="12"
+    viewBox="0 0 24 18"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="lang-flag-svg"
+    aria-hidden="true"
+  >
+    <rect width="24" height="18" rx="2" fill="#012169" />
+    <path d="M0 0L24 18M24 0L0 18" stroke="#FFFFFF" strokeWidth="3.2" />
+    <path d="M0 0L24 18M24 0L0 18" stroke="#C8102E" strokeWidth="1.6" />
+    <path d="M12 0V18M0 9H24" stroke="#FFFFFF" strokeWidth="5.2" />
+    <path d="M12 0V18M0 9H24" stroke="#C8102E" strokeWidth="3" />
+  </svg>
+);
+
 export default function PortfolioApp() {
   const [locale, setLocale] = useState<Locale>('pt');
   const [themeIndex, setThemeIndex] = useState<number>(0);
@@ -24,6 +59,7 @@ export default function PortfolioApp() {
   const [hoveredProject, setHoveredProject] = useState<ProjectCase | null>(null);
   const [activeCaseModal, setActiveCaseModal] = useState<ProjectCase | null>(null);
   const [activePillarIndex, setActivePillarIndex] = useState<number>(0);
+  const [activeJourneySlide, setActiveJourneySlide] = useState<number>(0);
   const [emailCopied, setEmailCopied] = useState<boolean>(false);
 
   const content = portfolioData[locale];
@@ -357,6 +393,33 @@ export default function PortfolioApp() {
     setThemeIndex((prev) => (prev + 1) % shaderThemes.length);
   };
 
+  const handleJourneyMobileScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const el = e.currentTarget;
+    const maxScroll = el.scrollWidth - el.clientWidth;
+    if (maxScroll <= 0) return;
+    const ratio = el.scrollLeft / maxScroll;
+    const total = content.journey.stages.length;
+    const idx = Math.min(total - 1, Math.max(0, Math.round(ratio * (total - 1))));
+    setActiveJourneySlide(idx);
+    if (journeyProgressRef.current && window.innerWidth <= 1024) {
+      journeyProgressRef.current.style.transform = `scaleX(${Math.max(0.08, ratio)})`;
+    }
+  };
+
+  const scrollToJourneySlide = (idx: number) => {
+    const track = journeyTrackRef.current;
+    if (!track) return;
+    const cards = track.querySelectorAll<HTMLElement>('.journey-card');
+    if (cards[idx]) {
+      cards[idx].scrollIntoView({
+        behavior: 'smooth',
+        inline: 'center',
+        block: 'nearest',
+      });
+      setActiveJourneySlide(idx);
+    }
+  };
+
   const handleNextProjectInModal = () => {
     if (!activeCaseModal) return;
     const items = content.works.items;
@@ -496,11 +559,19 @@ export default function PortfolioApp() {
           <button
             type="button"
             onClick={() => setLocale(locale === 'pt' ? 'en' : 'pt')}
-            className="hud-pill"
+            className="hud-pill lang-switch-pill"
             data-cursor={locale === 'pt' ? 'ENGLISH' : 'PORTUGUÊS'}
             aria-label="Alternar idioma PT/EN"
           >
-            <span>{locale === 'pt' ? 'PT 🇵🇹 / EN' : 'EN 🇬🇧 / PT'}</span>
+            <span className={`lang-opt ${locale === 'pt' ? 'is-active' : ''}`}>
+              <FlagPT />
+              <span>PT</span>
+            </span>
+            <span className="lang-sep">/</span>
+            <span className={`lang-opt ${locale === 'en' ? 'is-active' : ''}`}>
+              <FlagGB />
+              <span>EN</span>
+            </span>
           </button>
         </div>
       </header>
@@ -773,7 +844,11 @@ export default function PortfolioApp() {
               </div>
             </div>
 
-            <div ref={journeyTrackRef} className="journey-track">
+            <div
+              ref={journeyTrackRef}
+              className="journey-track"
+              onScroll={handleJourneyMobileScroll}
+            >
               {content.journey.stages.map((st) => (
                 <article
                   key={st.num}
@@ -820,6 +895,32 @@ export default function PortfolioApp() {
               ))}
             </div>
 
+            <div
+              className="journey-mobile-controls"
+              aria-label="Navegação do carrossel da jornada"
+            >
+              <span className="journey-mobile-counter">
+                {String(activeJourneySlide + 1).padStart(2, '0')} /{' '}
+                {String(content.journey.stages.length).padStart(2, '0')}
+              </span>
+              <div className="journey-dots">
+                {content.journey.stages.map((st, idx) => (
+                  <button
+                    key={st.num}
+                    type="button"
+                    className={`journey-dot ${
+                      activeJourneySlide === idx ? 'is-active' : ''
+                    }`}
+                    onClick={() => scrollToJourneySlide(idx)}
+                    aria-label={`Ir para fase ${st.num}`}
+                  />
+                ))}
+              </div>
+              <span className="journey-swipe-hint">
+                {locale === 'pt' ? 'DESLIZE →' : 'SWIPE →'}
+              </span>
+            </div>
+
             <div className="journey-progress">
               <div ref={journeyProgressRef} className="journey-progress-bar" />
             </div>
@@ -850,37 +951,95 @@ export default function PortfolioApp() {
 
           <div className="arsenal-layout">
             <div className="pillar-tabs" role="tablist">
-              {content.arsenal.pillars.map((pillar, idx) => (
-                <button
-                  key={pillar.id}
-                  type="button"
-                  role="tab"
-                  aria-selected={activePillarIndex === idx}
-                  className={`pillar-tab ${
-                    activePillarIndex === idx ? 'is-active' : ''
-                  }`}
-                  onClick={() => setActivePillarIndex(idx)}
-                  onMouseEnter={() => setActivePillarIndex(idx)}
-                  data-cursor={`PILAR ${pillar.num}`}
-                >
-                  <span className="pillar-tab-num">/{pillar.num}</span>
-                  <div>
-                    <div className="pillar-tab-title">{pillar.title}</div>
-                    <div
-                      style={{
-                        fontSize: '0.78rem',
-                        color: 'var(--muted)',
-                        marginTop: '0.2rem',
+              {content.arsenal.pillars.map((pillar, idx) => {
+                const isOpen = activePillarIndex === idx;
+                return (
+                  <div
+                    key={pillar.id}
+                    className={`pillar-accordion-item ${
+                      isOpen ? 'is-active' : ''
+                    }`}
+                  >
+                    <button
+                      type="button"
+                      role="tab"
+                      aria-selected={isOpen}
+                      aria-expanded={isOpen}
+                      className={`pillar-tab ${isOpen ? 'is-active' : ''}`}
+                      onClick={() =>
+                        setActivePillarIndex((prev) =>
+                          prev === idx && window.innerWidth <= 1024 ? -1 : idx
+                        )
+                      }
+                      onMouseEnter={() => {
+                        if (window.innerWidth > 1024) setActivePillarIndex(idx);
                       }}
+                      data-cursor={`PILAR ${pillar.num}`}
                     >
-                      {pillar.subtitle}
-                    </div>
+                      <span className="pillar-tab-num">/{pillar.num}</span>
+                      <div style={{ flex: 1 }}>
+                        <div className="pillar-tab-title">{pillar.title}</div>
+                        <div
+                          style={{
+                            fontSize: '0.78rem',
+                            color: 'var(--muted)',
+                            marginTop: '0.2rem',
+                          }}
+                        >
+                          {pillar.subtitle}
+                        </div>
+                      </div>
+                      <span className="pillar-tab-chevron" aria-hidden="true">
+                        {isOpen ? '−' : '+'}
+                      </span>
+                    </button>
+
+                    {isOpen && (
+                      <div className="pillar-mobile-body">
+                        <div className="pillar-mobile-kicker">
+                          {locale === 'pt'
+                            ? `ARQUITETURA & CAPACIDADE TÉCNICA // PILAR ${pillar.num}`
+                            : `TECHNICAL ARCHITECTURE & CAPABILITY // PILLAR ${pillar.num}`}
+                        </div>
+                        <p className="pillar-mobile-desc">
+                          {pillar.description}
+                        </p>
+                        <ul className="pillar-mobile-deliverables">
+                          {pillar.deliverables.map((del, i) => (
+                            <li key={i}>
+                              <span style={{ color: 'var(--accent)' }}>→</span>
+                              <span>{del}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        <div className="pillar-tech-grid">
+                          {pillar.technologies.map((t) => (
+                            <div key={t.name} className="pillar-tech-item">
+                              <span style={{ fontWeight: 500 }}>{t.name}</span>
+                              <span
+                                style={{
+                                  fontFamily: 'var(--f-mono)',
+                                  fontSize: '0.68rem',
+                                  color: 'var(--accent)',
+                                  letterSpacing: '0.06em',
+                                }}
+                              >
+                                {t.level}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
-                </button>
-              ))}
+                );
+              })}
             </div>
 
-            <div className="pillar-detail-panel" role="tabpanel">
+            <div
+              className="pillar-detail-panel desktop-only-panel"
+              role="tabpanel"
+            >
               <div>
                 <div
                   style={{
