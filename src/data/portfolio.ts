@@ -156,7 +156,7 @@ export const portfolioData: Record<Locale, PortfolioContent> = {
       roleBadge: 'Software Developer · Full-Stack & IA Aplicada',
       availability: 'Disponível para projetos & oportunidades na Europa / Remoto',
       locationLabel: 'Vila Nova de Gaia · Porto, PT',
-      yearsSummary: '4.5 anos CI&T Lisboa · +10 anos Infra Enterprise',
+      yearsSummary: '15+ anos em TI · Full-Stack, Arquitetura & IA Aplicada',
     },
     nav: {
       manifesto: 'Manifesto',
@@ -184,7 +184,7 @@ export const portfolioData: Record<Locale, PortfolioContent> = {
       ctaCv: 'Currículo PDF',
       scrollHint: 'Role para explorar',
       portraitCaption: 'Jhonatan Ecard',
-      portraitSub: 'Porto, Portugal · CI&T Alumni',
+      portraitSub: 'Porto, Portugal · Full-Stack & IA',
       telemetryLabel: 'PÓS & MBA EM ENG. DE SOFTWARE COM IA',
     },
     marquee: [
@@ -703,7 +703,7 @@ export const portfolioData: Record<Locale, PortfolioContent> = {
       roleBadge: 'Software Developer · Full-Stack & Applied AI',
       availability: 'Available for projects & opportunities in Europe / Remote',
       locationLabel: 'Vila Nova de Gaia · Porto, PT',
-      yearsSummary: '4.5 yrs CI&T Lisbon · 10+ yrs Enterprise Infra',
+      yearsSummary: '15+ yrs in IT · Full-Stack, Architecture & Applied AI',
     },
     nav: {
       manifesto: 'Manifesto',
@@ -731,7 +731,7 @@ export const portfolioData: Record<Locale, PortfolioContent> = {
       ctaCv: 'Download CV',
       scrollHint: 'Scroll to explore',
       portraitCaption: 'Jhonatan Ecard',
-      portraitSub: 'Porto, Portugal · CI&T Alumni',
+      portraitSub: 'Porto, Portugal · Full-Stack & AI',
       telemetryLabel: 'POSTGRAD & MBA IN SOFTWARE ENG. WITH AI',
     },
     marquee: [

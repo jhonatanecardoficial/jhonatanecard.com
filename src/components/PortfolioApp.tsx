@@ -509,7 +509,10 @@ export default function PortfolioApp() {
               </h1>
             </div>
 
-            <aside className="hero-portrait-card" data-cursor="CI&T · IA">
+            <aside
+              className="hero-portrait-card"
+              data-cursor={locale === 'pt' ? 'FULL-STACK · IA' : 'FULL-STACK · AI'}
+            >
               <div className="portrait-img-wrap">
                 <img
                   src="/assets/foto.jpg"
