@@ -1202,7 +1202,7 @@ export const portfolioData: Record<Locale, PortfolioContent> = {
       cvCardTitle: 'Executive Resume (PDF)',
       cvCardDesc:
         '1-page executive resume tailored for recruiters and engineering leaders, detailing my 4.5 years at CI&T Lisbon, AI projects, and academic background.',
-      cvDownloadBtn: 'Download PDF Resume',
+      cvDownloadBtn: 'Download PDF Resume (EN)',
       credentials: [
         {
           period: '2025 — 2026',

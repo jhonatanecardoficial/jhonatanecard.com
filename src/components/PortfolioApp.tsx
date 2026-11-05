@@ -304,7 +304,7 @@ export default function PortfolioApp() {
     };
   }, [loaderDone]);
 
-  // Close Case Modal on Escape key
+  // Close Case Modal on Escape key + Lock Lenis background scroll when Modal is open
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -314,6 +314,30 @@ export default function PortfolioApp() {
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
   }, []);
+
+  useEffect(() => {
+    if (activeCaseModal) {
+      lenisRef.current?.stop();
+      document.body.style.overflow = 'hidden';
+    } else {
+      lenisRef.current?.start();
+      document.body.style.overflow = '';
+    }
+    return () => {
+      lenisRef.current?.start();
+      document.body.style.overflow = '';
+    };
+  }, [activeCaseModal]);
+
+  const cvFileUrl =
+    locale === 'pt'
+      ? '/assets/Jhonatan-Ecard-CV-PT.pdf'
+      : '/assets/Jhonatan-Ecard-CV-EN.pdf';
+
+  const cvFileName =
+    locale === 'pt'
+      ? 'Jhonatan-Ecard-CV-PT.pdf'
+      : 'Jhonatan-Ecard-CV-EN.pdf';
 
   const handleCopyEmail = async () => {
     try {
@@ -544,11 +568,11 @@ export default function PortfolioApp() {
                 <span>↘</span>
               </a>
               <a
-                href="/assets/Jhonatan-Ecard-CV.pdf"
+                href={cvFileUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-magnetic btn-outline"
-                data-cursor="PDF 1-PÁG"
+                data-cursor={locale === 'pt' ? 'PDF 1-PÁG' : '1-PAGE PDF'}
               >
                 <span>{content.hero.ctaCv}</span>
                 <span>↓</span>
@@ -1008,7 +1032,9 @@ export default function PortfolioApp() {
                     textTransform: 'uppercase',
                   }}
                 >
-                  DOCUMENTO EXECUTIVO · 1 PÁGINA
+                  {locale === 'pt'
+                    ? 'DOCUMENTO EXECUTIVO · 1 PÁGINA'
+                    : 'EXECUTIVE DOCUMENT · 1 PAGE'}
                 </div>
                 <h3
                   style={{
@@ -1040,10 +1066,10 @@ export default function PortfolioApp() {
                 }}
               >
                 <a
-                  href="/assets/Jhonatan-Ecard-CV.pdf"
+                  href={cvFileUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  download
+                  download={cvFileName}
                   className="btn-magnetic btn-primary"
                   style={{ justifyContent: 'center' }}
                   data-cursor="DOWNLOAD PDF"
@@ -1059,7 +1085,8 @@ export default function PortfolioApp() {
                     textAlign: 'center',
                   }}
                 >
-                  Jhonatan-Ecard-CV.pdf · ATS-Friendly · Atualizado 2026
+                  {cvFileName} · ATS-Friendly ·{' '}
+                  {locale === 'pt' ? 'Atualizado 2026' : 'Updated 2026'}
                 </div>
               </div>
             </aside>
@@ -1146,10 +1173,10 @@ export default function PortfolioApp() {
                 GitHub ↗
               </a>
               <a
-                href="/assets/Jhonatan-Ecard-CV.pdf"
+                href={cvFileUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                data-cursor="CURRÍCULO"
+                data-cursor={locale === 'pt' ? 'CURRÍCULO' : 'RESUME'}
               >
                 CV PDF ↓
               </a>
@@ -1184,12 +1211,19 @@ export default function PortfolioApp() {
       {activeCaseModal && (
         <div
           className="case-modal-backdrop"
+          data-lenis-prevent
+          data-lenis-prevent-wheel
           onClick={() => setActiveCaseModal(null)}
           role="dialog"
           aria-modal="true"
           aria-label={activeCaseModal.title}
         >
-          <div className="case-modal" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="case-modal"
+            data-lenis-prevent
+            data-lenis-prevent-wheel
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="case-modal-top">
               <div
                 style={{
