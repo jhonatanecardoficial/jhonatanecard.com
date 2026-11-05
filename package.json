@@ -1,6 +1,6 @@
 {
   "name": "jhonatanecard-portfolio",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "private": false,
   "description": "Personal portfolio & software engineering showcase for Jhonatan Ecard — Full-Stack Developer & Applied AI (React, Next.js, TypeScript, Node.js, LLMs, RAG).",
   "author": "Jhonatan Ecard <jhonatanecard@gmail.com> (https://jhonatanecard.com)",
@@ -17,6 +17,8 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "gsap": "^3.15.1",
+    "lenis": "^1.3.27",
     "lucide-react": "^1.16.0",
     "next": "^15.3.0",
     "react": "^19.1.0",

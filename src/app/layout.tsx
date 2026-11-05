@@ -1,59 +1,65 @@
-import type { Metadata } from "next";
-import { DM_Sans, JetBrains_Mono } from "next/font/google";
-import "./globals.css";
-import { AppProvider } from "@/context/AppContext";
+import type { Metadata } from 'next';
+import { Fraunces, Space_Grotesk, JetBrains_Mono } from 'next/font/google';
+import './globals.css';
 
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-dm-sans",
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  variable: '--font-fraunces',
+  axes: ['opsz'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-space',
+  weight: ['300', '400', '500', '600', '700'],
+  display: 'swap',
 });
 
 const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-jetbrains-mono",
+  subsets: ['latin'],
+  variable: '--font-mono',
+  weight: ['300', '400', '500', '600'],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: "Jhonatan Ecard | Software Developer · Full-Stack & Applied AI",
+  metadataBase: new URL('https://jhonatanecard.com'),
+  title: 'Jhonatan Ecard — Software Developer · Full-Stack & Applied AI',
   description:
-    "Jhonatan Ecard — Desenvolvedor de Software Full-Stack & IA Aplicada (React, Next.js, TypeScript, Node.js, NestJS, LLMs, RAG, LangChain). 4.5+ anos na CI&T e 10+ anos em infraestrutura. Vila Nova de Gaia, Porto, Portugal.",
+    'Portfólio oficial de Jhonatan Ecard — Desenvolvedor de Software Full-Stack & IA Aplicada em Porto, Portugal. +4.5 anos na CI&T Lisboa, +10 anos em infraestrutura crítica enterprise (IBM, Engineering) e Pós/MBA em Engenharia de Software com IA.',
   keywords: [
-    "Jhonatan Ecard",
-    "Software Developer",
-    "Full-Stack Developer",
-    "Applied AI",
-    "React",
-    "Next.js",
-    "TypeScript",
-    "Node.js",
-    "NestJS",
-    "RAG",
-    "LangChain",
-    "Porto",
-    "Portugal",
+    'Jhonatan Ecard',
+    'Software Developer Portugal',
+    'Full-Stack Developer Porto',
+    'Applied AI Developer',
+    'React Next.js TypeScript',
+    'NestJS Temporal.io pgvector RAG',
+    'CI&T Lisbon Alumni',
+    'Desenvolvedor de Software IA',
   ],
-  authors: [{ name: "Jhonatan Ecard", url: "https://jhonatanecard.com" }],
+  authors: [{ name: 'Jhonatan Ecard', url: 'https://jhonatanecard.com' }],
   openGraph: {
-    title: "Jhonatan Ecard | Software Developer · Full-Stack & Applied AI",
+    title: 'Jhonatan Ecard — Software Developer · Full-Stack & Applied AI',
     description:
-      "Desenvolvedor de Software Full-Stack & IA Aplicada (React, Next.js, TypeScript, Node.js, RAG, LLMs). Porto, Portugal.",
-    url: "https://jhonatanecard.com",
-    siteName: "Jhonatan Ecard Portfolio",
+      'Engenharia de Software Full-Stack, Arquitetura RAG/LLMs & Criatividade Visual em WebGL. Baseado no Porto, Portugal.',
+    url: 'https://jhonatanecard.com',
+    siteName: 'Jhonatan Ecard Portfolio',
+    locale: 'pt_PT',
+    type: 'website',
     images: [
       {
-        url: "https://jhonatanecard.com/assets/foto.jpg",
-        width: 400,
-        height: 400,
-        alt: "Jhonatan Ecard",
+        url: '/assets/foto.jpg',
+        width: 800,
+        height: 800,
+        alt: 'Jhonatan Ecard — Software Developer',
       },
     ],
-    locale: "pt_PT",
-    type: "website",
   },
-  icons: {
-    icon: "/assets/favicon.svg",
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -62,13 +68,51 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Jhonatan Ecard',
+    jobTitle: 'Software Developer (Full-Stack & Applied AI)',
+    url: 'https://jhonatanecard.com',
+    image: 'https://jhonatanecard.com/assets/foto.jpg',
+    email: 'mailto:jhonatanecard@gmail.com',
+    telephone: '+351911782332',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Vila Nova de Gaia, Porto',
+      addressCountry: 'PT',
+    },
+    alumniOf: [
+      {
+        '@type': 'Organization',
+        name: 'CI&T',
+      },
+      {
+        '@type': 'CollegeOrUniversity',
+        name: 'Faculdade Líbano',
+      },
+      {
+        '@type': 'CollegeOrUniversity',
+        name: 'Faculdade Pitágoras',
+      },
+    ],
+    sameAs: [
+      'https://www.linkedin.com/in/jhonatan-ecard/',
+      'https://github.com/jhonatanecardoficial',
+    ],
+  };
+
   return (
-    <html lang="pt-PT" className={`${dmSans.variable} ${jetbrainsMono.variable}`}>
-      <body
-        style={{ fontFamily: "var(--font-dm-sans), system-ui, sans-serif" }}
-        className="antialiased selection:bg-indigo-500/30 selection:text-white"
-      >
-        <AppProvider>{children}</AppProvider>
+    <html
+      lang="pt-PT"
+      className={`${fraunces.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
+    >
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        {children}
       </body>
     </html>
   );

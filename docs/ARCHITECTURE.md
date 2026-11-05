@@ -1,27 +1,36 @@
-# Technical Architecture & Design System (`jhonatanecard.com`)
+# Arquitetura Técnica — JhonatanEcard.com (v3.0 Award Edition)
 
-## 1. Architectural Goals
+Este documento descreve as decisões de engenharia, renderização gráfica e coreografia de movimento implementadas no portfólio oficial de **Jhonatan Ecard** (`https://jhonatanecard.com`).
 
-1. **Zero-Latency Static Delivery:** Configured with `output: "export"` in `next.config.ts` so Next.js 15 pre-renders all routes into static HTML/CSS/JS bundles inside `out/`, ensuring instant TTFB on Hostinger or any CDN.
-2. **Strict Separation of Content & Presentation:** All bilingual copy (`pt` and `en`), career timeline entries, tech stack categories, and project architecture highlights live in `src/data/portfolioData.ts` typed against `src/types/index.ts`.
-3. **Instant Client-Side Localization:** `src/context/AppContext.tsx` provides reactive language switching (`pt` / `en`) and theme toggling (`dark` / `light`) without page reloads or route flickering.
+---
 
-## 2. Visual & Design System
+## 1. Visão Geral da Stack
 
-- **Color Palette:**
-  - Deep Obsidian Canvas: `#030508` / `#080c14`
-  - Glass Surface: `rgba(14, 19, 30, 0.72)` with `backdrop-filter: blur(18px)`
-  - Signature Gradients: Sky Blue (`#60a5fa`) → Indigo (`#818cf8`) → Warm Gold (`#eab308`)
-- **Typography:**
-  - Headings & Body: `DM Sans` (400–800)
-  - Technical Labels & Code: `JetBrains Mono` (400–700)
+| Camada | Tecnologia | Papel na Arquitetura |
+| :--- | :--- | :--- |
+| **Framework Core** | Next.js 15.5 (App Router) + React 19 | Estrutura modular com Static Export (`output: "export"`) para latência zero em CDN/Hostinger. |
+| **Tipagem & Dados** | TypeScript 5.8 (`strict: true`) | Contratos estritos para conteúdo bilíngue (`PT` / `EN`), casos de arquitetura e temas do shader. |
+| **Gráficos em Tempo Real** | WebGL 1.0 + GLSL Fragment Shader | Campo fluido fractal (5-octave FBM + domain warping) reativo ao mouse, scroll e troca de paleta. |
+| **Física de Scroll & Pinning** | Lenis + GSAP 3 + ScrollTrigger | Rolagem com inércia suave sincronizada ao `gsap.ticker` e timeline horizontal pinada em `#jornada`. |
+| **Tipografia Cinética** | Google Fonts (`Fraunces`, `Space Grotesk`, `JetBrains Mono`) | Interpolação por frame de `font-variation-settings` (`wght` 300..880) baseada em distância euclidiana ao cursor. |
 
-## 3. Component Breakdown
+---
 
-- **`Navbar.tsx`:** Floating pill navigation with real-time scroll progress bar, active section intersection observer, segmented flag switcher (`PT | EN`), theme toggle, and direct WhatsApp/phone CTA.
-- **`HeroSection.tsx`:** High-impact introduction with availability indicator, multi-stop gradient headline, tech stack bar, and studio portrait framed with floating glass badges.
-- **`AboutSection.tsx`:** Custom vector developer/AI illustration, narrative card, 4-metric Bento counters, and interactive categorized Tech Arsenal filter.
-- **`ProjectsSection.tsx`:** Interactive 3D orbital coverflow carousel paired with a 2x2 architectural breakdown Bento grid.
-- **`ExperienceSection.tsx`:** Vertical timeline of corporate experience (CI&T, Engineering Brasil, Mastermaq, IBM/Stefanini) and academic specialization (MBA & Postgrad in Software Engineering with AI).
-- **`ServicesSection.tsx`:** 2x2 tailored engineering solutions grid and high-contrast CTA banner.
-- **`ContactSection.tsx` & `ResumeSection.tsx`:** Interactive service-selector contact form (Email + WhatsApp dispatch) and 1-click PDF resume download card.
+## 2. Pipeline WebGL GLSL (`src/components/WebGLHeroCanvas.tsx`)
+
+O plano de fundo da seção Hero executa um shader procedural em GPU sem dependências pesadas de Three.js:
+
+- **Domain Warping:** Combina três camadas de `fbm(p)` rotacionadas para criar ondas topográficas orgânicas.
+- **Uniforms Dinâmicos:**
+  - `u_res`: Resolução ajustada por `Math.min(window.devicePixelRatio, 1.75)` para equilíbrio entre nitidez Retina e 60fps constantes.
+  - `u_mouse`: Coordenadas do cursor suavizadas via interpolação linear (`lerp 0.05`).
+  - `u_scroll`: Deslocamento de fase conforme o usuário rola a página.
+  - `u_accent` / `u_secondary`: Vetores RGB interpolados em tempo real quando o usuário alterna entre os modos **NEURAL VOLT (`#D4FF3A`)**, **AETHER MINT (`#38F2AF`)** e **SOLAR FLARE (`#FFB830`)**.
+
+---
+
+## 3. Física de Proximidade Tipográfica & Cursor Duplo
+
+- **Split Characters (`.char`):** O título principal é dividido em `<span className="char">`. Durante o loop `requestAnimationFrame`, quando a Hero está visível na viewport, a distância entre o ponteiro e o centro de cada letra determina seu peso variável (`wght`) e deslocamento vertical (`translateY`).
+- **Dual-Physics Cursor:** Um ponto central rápido (`lerp 0.62`) e um anel externo com inércia (`lerp 0.15`) expandem para um disco sólido de `92px` sempre que o usuário interage com elementos marcados com `data-cursor="..."`.
+- **Velocity-Tilted Project Preview:** Na lista de obras (`#obras`), o card flutuante calcula a velocidade horizontal instantânea do cursor (`vx = tx - lastX`) e aplica rotação amortecida (`rotate(-10deg..10deg)`), exibindo o blueprint vetorial do projeto em foco.

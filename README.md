@@ -1,125 +1,93 @@
-# ⚡ Jhonatan Ecard — Personal Portfolio & Engineering Showcase (`v2.0`)
+# Jhonatan Ecard — Creative Engineering & Applied AI Portfolio (v3.0 Award Edition)
 
-> **Live Website:** [https://jhonatanecard.com](https://jhonatanecard.com)
+[![Live Website](https://img.shields.io/badge/Live-jhonatanecard.com-D4FF3A?style=for-the-badge&logo=vercel&logoColor=black)](https://jhonatanecard.com)
+[![Next.js 15](https://img.shields.io/badge/Next.js-15.5-000000?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![React 19](https://img.shields.io/badge/React-19.1-149ECA?style=for-the-badge&logo=react)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![WebGL GLSL](https://img.shields.io/badge/WebGL-GLSL_Shaders-38F2AF?style=for-the-badge&logo=opengl&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)
+[![GSAP ScrollTrigger](https://img.shields.io/badge/GSAP-ScrollTrigger_%2B_Lenis-88CE02?style=for-the-badge)](https://gsap.com/)
 
-[![Next.js](https://img.shields.io/badge/Next.js-15-000000?logo=next.js&logoColor=white)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-emerald.svg)](./LICENSE)
-
----
-
-## 📋 Overview / Visão Geral
-
-**[PT]** Repositório oficial do portfólio pessoal profissional de **Jhonatan Ecard** ([jhonatanecard.com](https://jhonatanecard.com)), projetado e codificado com **Next.js 15 (App Router)**, **React 19**, **TypeScript** e **Tailwind CSS v4**. O projeto combina estética dark glassmorphism de alto contraste, carrossel orbital interativo de projetos, Bento Grids arquiteturais, suporte bilíngue instantâneo (**Português / Inglês**) e alternância de tema (**Dark / Light**).
-
-**[EN]** Official repository for **Jhonatan Ecard**'s personal engineering portfolio ([jhonatanecard.com](https://jhonatanecard.com)), built with **Next.js 15 (App Router)**, **React 19**, **TypeScript** and **Tailwind CSS v4**. Featuring high-contrast dark glassmorphism aesthetics, an interactive orbital project carousel, architectural Bento Grids, instant **PT / EN** internationalization, and **Dark / Light** theme switching.
+> **Portfólio oficial e vitrine de engenharia criativa de [Jhonatan Ecard](https://jhonatanecard.com)** — Desenvolvedor de Software Full-Stack & IA Aplicada baseado no Porto, Portugal (+4,5 anos na **CI&T Lisboa** + 10 anos em Infraestrutura Crítica Enterprise na **IBM, Engineering Brasil, Mastermaq & Stefanini**).
 
 ---
 
-## ✨ Key Features / Funcionalidades
+## ✦ Direção de Arte & Engenharia Visual (Awwwards-Caliber Architecture)
 
-- **🎨 Luxury Glassmorphism & Bento UI:** Floating glass pill navbar with live scroll progress indicator, multi-stop blue/gold/indigo typography gradients, ambient radial spotlights, and custom vector developer illustrations.
-- **🌐 Instant Bilingual Engine (`PT` / `EN`):** Reactive client-side internationalization (`AppContext`) with `localStorage` persistence and segmented flag switcher.
-- **🌓 Adaptive Theme Switcher (`Dark` / `Light`):** Seamless theme transition powered by CSS custom properties.
-- **🎡 Interactive 3D Coverflow Project Stage + Architecture Grid:** Interactive orbital emblem selector paired with a detailed technical breakdown grid for every featured repository.
-- **📄 Built-in Resume Download & Interactive Contact Dispatch:** Direct 1-click PDF CV download (`Jhonatan-Ecard-CV.pdf`) and interactive topic-selector form integrated with **E-mail (`mailto:`)** and **WhatsApp**.
-- **🚀 Static Export Ready (`output: "export"`):** Pre-rendered static bundle (`out/`) for sub-second TTFB on any static/CDN host.
+Diferente de templates convencionais de portfólio, esta aplicação foi projetada do zero unindo **Engenharia de Software Full-Stack** e **Creative Coding a 60fps**:
+
+1. **Pipeline WebGL Fragment Shader em Tempo Real (`WebGLHeroCanvas.tsx`)**
+   - Shader GLSL customizado com **Fractional Brownian Motion (FBM)** e *domain warping* em 5 oitavas.
+   - Reage continuamente à posição do cursor (`u_mouse`), velocidade de rolagem (`u_scroll`) e **troca de tema cromático em tempo real** (`NEURAL VOLT`, `AETHER MINT`, `SOLAR FLARE`) via interpolação suave de `uniform vec3`.
+2. **Tipografia Variável com Física de Proximidade (`Fraunces` Optical Size 144)**
+   - Cada caractere do título monumental (`JHONATAN ECARD*`) calcula sua distância euclidiana até o cursor a cada frame (`requestAnimationFrame`), interpolando dinamicamente `font-variation-settings: 'opsz' 144, 'wght' 300..880` e elevação magnética vertical.
+3. **Coreografia de Rolagem com Lenis + GSAP ScrollTrigger**
+   - Inércia suave de rolagem via **Lenis** sincronizada diretamente ao `gsap.ticker`.
+   - **Seção Horizontal Pinada (`#jornada`)**: no desktop, o scroll vertical fixa a viewport e desloca horizontalmente os 6 estágios da carreira (`2006` → `2026`) com barra de progresso em tempo real.
+4. **Índice Tipográfico de Obras + Prévia Flutuante com Inclinação por Velocidade + Modal de Arquitetura**
+   - Ao passar o cursor sobre as obras (`Advocatus IA`, `CPWE Engine`, `PaperClip · Hermes · OpenClaw`, `JhonatanEcard.com`), um card flutuante segue o cursor com inclinação proporcional à velocidade horizontal (`vx * 0.22`) exibindo diagramas vetoriais da arquitetura.
+   - Clicar em qualquer obra abre um **Estudo de Caso & Blueprint de Arquitetura** detalhado com camadas técnicas, problema/solução e links diretos.
+5. **Contraste Editorial de Alto Impacto + Cursor Duplo com Rótulos Contextuais (`[data-cursor]`)**
+   - Alternância dramática entre **Obsidian Void (`#070709`)** e **Warm Archival Paper (`#EBE5DA`)** na seção de Manifesto, acompanhada de película de grão cinematográfico SVG e cursor magnético de duplo anel.
 
 ---
 
-## 🏗️ Project Architecture / Estrutura do Projeto
+## 🏛️ Estrutura do Projeto
 
 ```text
 jhonatanecard.com/
+├── docs/
+│   └── ARCHITECTURE.md                # Documentação detalhada da arquitetura WebGL + GSAP + Next.js
 ├── public/
-│   └── assets/                  # Static assets (Portrait, SVG flags, Favicon, CV PDF)
+│   └── assets/
+│       ├── foto.jpg                   # Retrato oficial de Jhonatan Ecard
+│       └── Jhonatan-Ecard-CV.pdf      # Currículo executivo de 1 página (PDF)
 ├── src/
 │   ├── app/
-│   │   ├── globals.css          # Design tokens, glassmorphic utilities & animations
-│   │   ├── layout.tsx           # Root layout, Google Fonts (DM Sans + JetBrains Mono) & SEO metadata
-│   │   └── page.tsx             # Main single-page composition
+│   │   ├── globals.css                # Design tokens, tipografia editorial, cursor, grain & layout
+│   │   ├── layout.tsx                 # Fontes variáveis (Fraunces, Space Grotesk, JetBrains Mono) + SEO JSON-LD
+│   │   └── page.tsx                   # Ponto de entrada da aplicação
 │   ├── components/
-│   │   ├── Navbar.tsx           # Floating glass pill header + scroll progress rail + PT/EN & Theme controls
-│   │   ├── HeroSection.tsx      # Availability badge, gradient headline, CTAs & framed portrait with floating badges
-│   │   ├── AboutSection.tsx     # Custom SVG architect illustration, story card, 4-metric Bento & categorized Tech Arsenal
-│   │   ├── ProjectsSection.tsx  # Interactive orbital coverflow carousel + Spotlight card + Architectural Bento Grid
-│   │   ├── ExperienceSection.tsx# Career timeline (CI&T, Engineering, Mastermaq, IBM) + Education & Certifications
-│   │   ├── ServicesSection.tsx  # 2x2 custom engineering solutions grid + high-contrast strategy CTA banner
-│   │   ├── ContactSection.tsx   # Dual contact cards + interactive topic-selector form (Email & WhatsApp)
-│   │   ├── ResumeSection.tsx    # Glassmorphic PDF curriculum download card
-│   │   └── Footer.tsx           # Signature footer, cursor spotlight orb & floating Up/Down section controls
-│   ├── context/
-│   │   └── AppContext.tsx       # Reactive PT/EN locale, Dark/Light theme & active section state
-│   ├── data/
-│   │   └── portfolioData.ts     # Strictly typed bilingual content & project metadata
-│   └── types/
-│       └── index.ts             # TypeScript domain interfaces
-├── docs/
-│   └── ARCHITECTURE.md          # Detailed architectural & design system notes
-├── next.config.ts               # Static export configuration
+│   │   ├── PortfolioApp.tsx           # Orquestrador principal (Lenis, GSAP, Cursor, Seções & Modal)
+│   │   ├── WebGLHeroCanvas.tsx        # Pipeline WebGL1 GLSL Fragment Shader a 60fps
+│   │   └── ProjectArtwork.tsx         # Diagramas vetoriais de arquitetura de cada projeto
+│   └── data/
+│       └── portfolio.ts               # Conteúdo bilíngue tipado (PT / EN) e temas do shader
+├── next.config.ts                     # Configuração de Static Export (output: 'export')
 ├── package.json
 └── tsconfig.json
 ```
 
 ---
 
-## 🛠️ Tech Stack
-
-| Layer | Technology |
-|---|---|
-| **Framework** | Next.js 15 (App Router, Static Export) |
-| **UI Library** | React 19 |
-| **Language** | TypeScript 5.8 (Strict Mode) |
-| **Styling** | Tailwind CSS v4 + Custom CSS Variables |
-| **Icons & Graphics** | Lucide React + Custom Hand-Crafted SVGs |
-| **Typography** | `DM Sans` (UI/Headings) + `JetBrains Mono` (Code/Labels) |
-
----
-
-## 🚀 Getting Started / Executar Localmente
-
-### Prerequisites
-- **Node.js** `>= 20.0.0`
-- **npm** or **pnpm**
-
-### Installation & Development
+## 🚀 Como Executar Localmente
 
 ```bash
-# 1. Clone the repository
-git clone https://github.com/jhonatanecardoficial/jhonatanecard.com.git
-cd jhonatanecard.com
-
-# 2. Install dependencies
+# 1. Instalar dependências
 npm install
 
-# 3. Start the development server
+# 2. Iniciar servidor de desenvolvimento
 npm run dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-### Production Static Build
-
-```bash
-# Type-check and generate static production bundle in ./out
+# 3. Validar tipagem TypeScript
 npm run type-check
+
+# 4. Gerar build estático de produção (pasta out/)
 npm run build
 ```
 
 ---
 
-## 📬 Contact / Contato
+## 📬 Contato & Links Oficiais
 
 - **Website:** [https://jhonatanecard.com](https://jhonatanecard.com)
 - **LinkedIn:** [linkedin.com/in/jhonatan-ecard](https://www.linkedin.com/in/jhonatan-ecard/)
 - **GitHub:** [github.com/jhonatanecardoficial](https://github.com/jhonatanecardoficial)
 - **E-mail:** [jhonatanecard@gmail.com](mailto:jhonatanecard@gmail.com)
-- **Location:** Vila Nova de Gaia, Porto — Portugal
+- **Localização:** Vila Nova de Gaia, Porto — Portugal 🇵🇹
 
 ---
 
-## 📄 License
+## 📄 Licença
 
-Licensed under the [MIT License](./LICENSE). Copyright © 2026 **Jhonatan Ecard**.
+Código-fonte deste portfólio disponibilizado sob a licença [MIT](./LICENSE) como referência de engenharia Front-End e Creative Coding.
+*(Nota: O projeto **Advocatus IA** referenciado no portfólio possui licença proprietária estrita — todos os direitos reservados).*

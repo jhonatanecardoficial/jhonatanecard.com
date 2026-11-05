@@ -10,6 +10,8 @@
 
 # Legacy static draft & local workspace notes
 /site/
+/Modelo KIME/
+*.zip
 /docs/perfil.md
 AGENTS.md
 .playwright-mcp/
