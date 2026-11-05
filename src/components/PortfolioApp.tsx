@@ -40,6 +40,7 @@ export default function PortfolioApp() {
   const journeyTrackRef = useRef<HTMLDivElement | null>(null);
   const journeyProgressRef = useRef<HTMLDivElement | null>(null);
   const lenisRef = useRef<Lenis | null>(null);
+  const modalCloseBtnRef = useRef<HTMLButtonElement | null>(null);
 
   // Sync CSS --accent variable when theme changes
   useEffect(() => {
@@ -319,6 +320,9 @@ export default function PortfolioApp() {
     if (activeCaseModal) {
       lenisRef.current?.stop();
       document.body.style.overflow = 'hidden';
+      setTimeout(() => {
+        modalCloseBtnRef.current?.focus();
+      }, 50);
     } else {
       lenisRef.current?.start();
       document.body.style.overflow = '';
@@ -373,6 +377,13 @@ export default function PortfolioApp() {
 
   return (
     <>
+      {/* SKIP TO MAIN CONTENT (WCAG 2.1 AA) */}
+      <a href="#top" className="skip-link">
+        {locale === 'pt'
+          ? 'Pular para o conteúdo principal'
+          : 'Skip to main content'}
+      </a>
+
       {/* CUSTOM DUAL-PHYSICS CURSOR */}
       <div className="cursor" aria-hidden="true">
         <div ref={cursorDotRef} className="cursor-dot" />
@@ -1238,11 +1249,18 @@ export default function PortfolioApp() {
               </div>
 
               <button
+                ref={modalCloseBtnRef}
                 type="button"
                 className="case-modal-close"
                 onClick={() => setActiveCaseModal(null)}
+                aria-label={
+                  locale === 'pt'
+                    ? 'Fechar modal de estudo de caso'
+                    : 'Close case study modal'
+                }
               >
-                {content.works.modal.close}
+                <span aria-hidden="true">✕</span>
+                <span>{content.works.modal.close}</span>
               </button>
             </div>
 

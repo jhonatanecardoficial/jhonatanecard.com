@@ -1,0 +1,32 @@
+# Jhonatan Ecard — Software Developer (Full-Stack & Applied AI)
+
+> Official portfolio and technical profile of Jhonatan Ecard, based in Vila Nova de Gaia / Porto, Portugal.
+
+## Summary
+- **Role:** Software Developer · Full-Stack & Applied AI
+- **Location:** Vila Nova de Gaia, Porto, Portugal (Available for Europe & Remote)
+- **Experience:** 15+ years in IT (4.5+ years as Full-Stack Software Developer at CI&T Lisbon + 10+ years in critical enterprise infrastructure for IBM, Engineering Brasil, Mastermaq, Stefanini, 3CON)
+- **Website:** https://jhonatanecard.com
+- **Email:** jhonatanecard@gmail.com
+- **Phone / WhatsApp:** +351 911 782 332
+- **LinkedIn:** https://www.linkedin.com/in/jhonatan-ecard/
+- **GitHub:** https://github.com/jhonatanecardoficial
+- **Resume (Portuguese PDF):** https://jhonatanecard.com/assets/Jhonatan-Ecard-CV-PT.pdf
+- **Resume (English PDF):** https://jhonatanecard.com/assets/Jhonatan-Ecard-CV-EN.pdf
+
+## Academic Education
+1. **Full Cycle** — *MBA in Software Engineering with AI, Artificial Intelligence* (Feb 2026 – Feb 2027) · Skills: AI
+2. **Anhanguera Educacional** — *Software Engineering in Applied AI, Artificial Intelligence* (Feb 2026 – Feb 2027) · Skills: AI
+3. **Centro Universitário de Belo Horizonte (UniBH)** — *Bachelor's Degree in Computer Science, Information Technology* (2006 – 2011)
+
+## Core Technical Stack
+- **Front-End & Creative Engineering:** React 19, Next.js 15 (App Router), TypeScript, Tailwind CSS, GSAP ScrollTrigger, Lenis, WebGL GLSL Shaders
+- **Back-End & Architecture:** Node.js, NestJS, Temporal.io (Durable Workflows), PostgreSQL, Prisma ORM, REST APIs, BFF, Microservices
+- **Applied AI & LLM Engineering:** RAG (Retrieval-Augmented Generation), pgvector, Anthropic Claude API, OpenAI SDK, Autonomous Agents, Model Context Protocol (MCP), Context-Preserving Workflow Engines (CPWE)
+- **Observability & Critical Infrastructure:** Prometheus, Grafana, Zabbix, Docker, CI/CD (GitHub Actions), Linux, Capacity Planning & Performance Tuning
+
+## Featured Production Projects
+1. **Advocatus IA** (https://github.com/jhonatanecardoficial/Advocatus-IA) — Proprietary Full-Stack LegalTech SaaS with RAG Semantic Search (`pgvector`) and Durable Workflows (`Temporal.io`). Commercial and personal unauthorized use is strictly prohibited.
+2. **CPWE Engine** (https://github.com/jhonatanecardoficial/cpwe-engine) — Context-Preserving Workflow Engine for Multi-Agent Orchestration in TypeScript.
+3. **PaperClip · Hermes · OpenClaw** (https://github.com/jhonatanecardoficial/PaperClipAi-HermesAgent-OpenClaw) — Autonomous Agent Integration & Tool-Calling Ecosystem.
+4. **JhonatanEcard.com v3** (https://github.com/jhonatanecardoficial/jhonatanecard.com) — Award-caliber Creative Engineering portfolio with 60fps WebGL GLSL shaders and kinetic typography.

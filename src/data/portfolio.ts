@@ -218,9 +218,9 @@ export const portfolioData: Record<Locale, PortfolioContent> = {
           label: 'Anos de experiência total em TI, Infra & Desenvolvimento',
         },
         {
-          value: 360,
-          suffix: 'h',
-          label: 'Pós-Graduação + MBA em Engenharia de Software com IA',
+          value: 2,
+          suffix: 'x',
+          label: 'Especializações de Pós & MBA em Eng. de Software com IA (Full Cycle & Anhanguera)',
         },
         {
           value: 4,
@@ -476,18 +476,18 @@ export const portfolioData: Record<Locale, PortfolioContent> = {
       stages: [
         {
           num: '01',
-          period: '2025 — 2026',
-          role: 'Pós-Graduação & MBA em Eng. de Software com IA',
-          company: 'Faculdade Líbano',
+          period: 'Fev 2026 — Fev 2027',
+          role: 'MBA & Especialização em Engenharia de Software com IA Aplicada',
+          company: 'Full Cycle & Anhanguera Educacional',
           location: 'Porto, Portugal (Remoto)',
           tag: 'ESPECIALIZAÇÃO ACADÊMICA · IA APLICADA',
           description:
-            'Aprofundamento formal em arquitetura de sistemas inteligentes, orquestração de LLMs, RAG (Retrieval-Augmented Generation), agentes autônomos, prompt engineering avançado e governança de código assistido por IA.',
+            'Dupla especialização avançada unindo o MBA in Software Engineering with AI (Full Cycle) e a Pós-Graduação Software Engineering in Applied AI (Anhanguera Educacional) — com foco em arquitetura de sistemas inteligentes, LLMs, RAG, agentes autônomos e governança de engenharia.',
           metrics: [
-            'Pós-Graduação Lato Sensu (360h) em conclusão (Abril 2026)',
-            'MBA em Engenharia de Software com IA em andamento',
+            'Full Cycle — MBA in Software Engineering with AI (fev. 2026 – fev. 2027)',
+            'Anhanguera Educacional — Software Engineering in Applied AI (fev. 2026 – fev. 2027)',
           ],
-          stack: ['LLMs', 'RAG', 'pgvector', 'Agentes IA', 'Clean Architecture'],
+          stack: ['IA Aplicada', 'LLMs & RAG', 'pgvector', 'Agentes IA', 'Software Architecture'],
         },
         {
           num: '02',
@@ -552,17 +552,17 @@ export const portfolioData: Record<Locale, PortfolioContent> = {
         {
           num: '06',
           period: '2006 — 2012',
-          role: 'Fundação em Infraestrutura & Graduação Tecnológica',
-          company: 'Faculdade Pitágoras · Algar · Montreal · Aethra',
-          location: 'Minas Gerais, Brasil',
-          tag: 'FORMAÇÃO & BASE SÓLIDA DE TI',
+          role: 'Bacharelado em Ciência da Computação & Fundação em TI',
+          company: 'Centro Universitário de Belo Horizonte (UniBH) · Algar · Montreal · Aethra',
+          location: 'Belo Horizonte, Minas Gerais, Brasil',
+          tag: 'BACHARELADO EM CIÊNCIA DA COMPUTAÇÃO',
           description:
-            'Graduação em Tecnologia em Redes de Computadores pela Faculdade Pitágoras (2008–2010) e atuação prática desde 2006 em suporte de redes, servidores e operação de sistemas corporativos.',
+            'Bacharelado em Ciência da Computação (Information Technology) pelo Centro Universitário de Belo Horizonte (2006–2011) aliado à atuação prática desde 2006 em redes, servidores e operação de sistemas corporativos.',
           metrics: [
-            'Graduação concluída em Redes de Computadores',
-            'Base sólida em protocolos de rede, sistemas operacionais e segurança',
+            "Bachelor's Degree in Computer Science — Centro Universitário de Belo Horizonte (2006–2011)",
+            'Base sólida em algoritmos, arquitetura de computadores, redes e sistemas operacionais',
           ],
-          stack: ['Redes TCP/IP', 'Servidores', 'Linux / Windows', 'Suporte N2/N3'],
+          stack: ['Computer Science', 'Information Technology', 'Redes TCP/IP', 'Linux / Windows'],
         },
       ],
     },
@@ -658,32 +658,36 @@ export const portfolioData: Record<Locale, PortfolioContent> = {
       cvDownloadBtn: 'Baixar CV em PDF (PT)',
       credentials: [
         {
-          period: '2025 — 2026',
-          title: 'MBA em Engenharia de Software com IA',
-          institution: 'Faculdade Líbano',
-          badge: 'EM CURSO',
-          detail: 'Gestão técnica, arquitetura de produtos de IA, governança e liderança de engenharia.',
+          period: 'fev. de 2026 – fev. de 2027',
+          title: 'MBA in Software Engineering with AI, Artificial Intelligence',
+          institution: 'Full Cycle',
+          badge: 'EM CURSO · IA',
+          detail:
+            'Competências: IA · Arquitetura de software em larga escala potencializada por Inteligência Artificial, LLMs, RAG e sistemas distribuídos.',
         },
         {
-          period: '2025 — Abr 2026',
-          title: 'Pós-Graduação Lato Sensu em Engenharia de Software com IA',
-          institution: 'Faculdade Líbano · 360 horas',
-          badge: 'FASE FINAL',
-          detail: 'Engenharia de software moderna combinada a LLMs, RAG, agentes autônomos e automação.',
+          period: 'fev. de 2026 – fev. de 2027',
+          title: 'Software Engineering in Applied AI, Artificial Intelligence',
+          institution: 'Anhanguera Educacional',
+          badge: 'EM CURSO · IA',
+          detail:
+            'Competências: IA · Engenharia de Software em IA Aplicada, agentes autônomos, integração de modelos generativos e automação inteligente.',
         },
         {
-          period: '2008 — 2010',
-          title: 'Graduação em Tecnologia em Redes de Computadores',
-          institution: 'Faculdade Pitágoras',
+          period: '2006 – 2011',
+          title: "Bachelor's Degree in Computer Science, Information Technology",
+          institution: 'Centro Universitário de Belo Horizonte',
           badge: 'CONCLUÍDO',
-          detail: 'Fundamentos sólidos de arquitetura de redes, sistemas distribuídos, servidores e segurança.',
+          detail:
+            'Bacharelado em Ciência da Computação e Tecnologia da Informação — algoritmos, estruturas de dados, engenharia de software, redes e sistemas distribuídos.',
         },
         {
           period: 'Certificações',
           title: 'Scrum Foundation (SFPC) · DevOps Essentials · AI Skills',
           institution: 'CertiProf · Microsoft · LinkedIn Learning',
           badge: 'VERIFICADO',
-          detail: 'Certificações em cultura ágil, práticas de DevOps, cibersegurança e IA generativa.',
+          detail:
+            'Certificações em cultura ágil, práticas de DevOps, cibersegurança e IA generativa.',
         },
       ],
     },
@@ -765,9 +769,9 @@ export const portfolioData: Record<Locale, PortfolioContent> = {
           label: 'Total years in IT, Critical Infra & Software Development',
         },
         {
-          value: 360,
-          suffix: 'h',
-          label: 'Postgraduate + MBA in Software Engineering with AI',
+          value: 2,
+          suffix: 'x',
+          label: 'Postgrad & MBA Specializations in Software Eng. with AI (Full Cycle & Anhanguera)',
         },
         {
           value: 4,
@@ -1023,18 +1027,18 @@ export const portfolioData: Record<Locale, PortfolioContent> = {
       stages: [
         {
           num: '01',
-          period: '2025 — 2026',
-          role: 'Postgraduate & MBA in Software Eng. with AI',
-          company: 'Faculdade Líbano',
+          period: 'Feb 2026 — Feb 2027',
+          role: 'MBA & Specialization in Software Engineering with Applied AI',
+          company: 'Full Cycle & Anhanguera Educacional',
           location: 'Porto, Portugal (Remote)',
           tag: 'ACADEMIC SPECIALIZATION · APPLIED AI',
           description:
-            'Formal specialization in intelligent systems architecture, LLM orchestration, RAG (Retrieval-Augmented Generation), autonomous agents, advanced prompt engineering, and AI-augmented software governance.',
+            'Dual advanced specialization combining the MBA in Software Engineering with AI (Full Cycle) and Software Engineering in Applied AI (Anhanguera Educacional) — focused on intelligent systems architecture, LLM orchestration, RAG, autonomous agents, and AI-augmented engineering.',
           metrics: [
-            '360-hour Postgraduate specialization completing April 2026',
-            'MBA in Software Engineering with AI in progress',
+            'Full Cycle — MBA in Software Engineering with AI (Feb 2026 – Feb 2027)',
+            'Anhanguera Educacional — Software Engineering in Applied AI (Feb 2026 – Feb 2027)',
           ],
-          stack: ['LLMs', 'RAG', 'pgvector', 'AI Agents', 'Clean Architecture'],
+          stack: ['Applied AI', 'LLMs & RAG', 'pgvector', 'AI Agents', 'Software Architecture'],
         },
         {
           num: '02',
@@ -1099,17 +1103,17 @@ export const portfolioData: Record<Locale, PortfolioContent> = {
         {
           num: '06',
           period: '2006 — 2012',
-          role: 'Infrastructure Foundation & Networking Degree',
-          company: 'Faculdade Pitágoras · Algar · Montreal · Aethra',
-          location: 'Minas Gerais, Brazil',
-          tag: 'FOUNDATION & DEGREE IN NETWORKS',
+          role: "Bachelor's in Computer Science & IT Foundation",
+          company: 'Centro Universitário de Belo Horizonte (UniBH) · Algar · Montreal · Aethra',
+          location: 'Belo Horizonte, Minas Gerais, Brazil',
+          tag: 'BACHELOR OF COMPUTER SCIENCE',
           description:
-            'Graduated in Computer Networks Technology at Faculdade Pitágoras (2008–2010) alongside hands-on enterprise experience starting in 2006 across network operations, servers, and corporate IT systems.',
+            "Bachelor's Degree in Computer Science, Information Technology at Centro Universitário de Belo Horizonte (2006–2011) alongside hands-on enterprise experience starting in 2006 across network operations, servers, and corporate IT systems.",
           metrics: [
-            'Completed Degree in Computer Networks Technology',
-            'Deep foundation in network protocols, operating systems, and security',
+            "Bachelor's Degree in Computer Science — Centro Universitário de Belo Horizonte (2006–2011)",
+            'Strong foundation in algorithms, software engineering, networks, and operating systems',
           ],
-          stack: ['TCP/IP Networks', 'Servers', 'Linux / Windows', 'L2/L3 Operations'],
+          stack: ['Computer Science', 'Information Technology', 'TCP/IP Networks', 'Linux / Windows'],
         },
       ],
     },
@@ -1205,32 +1209,36 @@ export const portfolioData: Record<Locale, PortfolioContent> = {
       cvDownloadBtn: 'Download PDF Resume (EN)',
       credentials: [
         {
-          period: '2025 — 2026',
-          title: 'MBA in Software Engineering with AI',
-          institution: 'Faculdade Líbano',
-          badge: 'IN PROGRESS',
-          detail: 'Technical management, AI product architecture, governance, and engineering leadership.',
+          period: 'Feb 2026 – Feb 2027',
+          title: 'MBA in Software Engineering with AI, Artificial Intelligence',
+          institution: 'Full Cycle',
+          badge: 'IN PROGRESS · AI',
+          detail:
+            'Skills: AI · Large-scale software architecture powered by Artificial Intelligence, LLMs, RAG, and distributed systems.',
         },
         {
-          period: '2025 — Apr 2026',
-          title: 'Postgraduate Degree in Software Engineering with AI',
-          institution: 'Faculdade Líbano · 360 hours',
-          badge: 'FINAL STAGE',
-          detail: 'Modern software engineering combined with LLMs, RAG, autonomous agents, and automation.',
+          period: 'Feb 2026 – Feb 2027',
+          title: 'Software Engineering in Applied AI, Artificial Intelligence',
+          institution: 'Anhanguera Educacional',
+          badge: 'IN PROGRESS · AI',
+          detail:
+            'Skills: AI · Software Engineering in Applied AI, autonomous agents, generative model integration, and intelligent automation.',
         },
         {
-          period: '2008 — 2010',
-          title: 'Degree in Computer Networks Technology',
-          institution: 'Faculdade Pitágoras',
+          period: '2006 – 2011',
+          title: "Bachelor's Degree in Computer Science, Information Technology",
+          institution: 'Centro Universitário de Belo Horizonte',
           badge: 'COMPLETED',
-          detail: 'Strong foundation in network architecture, distributed systems, servers, and security.',
+          detail:
+            'Bachelor of Science in Computer Science and Information Technology — algorithms, data structures, software engineering, networking, and distributed systems.',
         },
         {
           period: 'Certifications',
           title: 'Scrum Foundation (SFPC) · DevOps Essentials · AI Skills',
           institution: 'CertiProf · Microsoft · LinkedIn Learning',
           badge: 'VERIFIED',
-          detail: 'Certifications in agile delivery, DevOps practices, cybersecurity, and generative AI.',
+          detail:
+            'Certifications in agile delivery, DevOps practices, cybersecurity, and generative AI.',
         },
       ],
     },
