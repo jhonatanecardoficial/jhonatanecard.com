@@ -61,6 +61,7 @@ export default function PortfolioApp() {
   const [activePillarIndex, setActivePillarIndex] = useState<number>(0);
   const [activeJourneySlide, setActiveJourneySlide] = useState<number>(0);
   const [emailCopied, setEmailCopied] = useState<boolean>(false);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
   const content = portfolioData[locale];
   const activeTheme: ShaderTheme = shaderThemes[themeIndex];
@@ -147,6 +148,18 @@ export default function PortfolioApp() {
     updateClock();
     const timer = setInterval(updateClock, 1000);
     return () => clearInterval(timer);
+  }, []);
+
+  // Track scroll state for smart frosted glass header
+  useEffect(() => {
+    const handleScroll = () => {
+      const shouldScrolled = window.scrollY > 24;
+      setIsScrolled((prev) => (prev !== shouldScrolled ? shouldScrolled : prev));
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // 3. Lenis Smooth Scroll + GSAP ScrollTrigger Horizontal Pinned Timeline
@@ -519,8 +532,8 @@ export default function PortfolioApp() {
         </div>
       )}
 
-      {/* FIXED BLEND-MODE HEADER */}
-      <header className="site-header">
+      {/* FIXED SMART FROSTED HEADER */}
+      <header className={`site-header ${isScrolled ? 'is-scrolled' : ''}`}>
         <a href="#top" className="brand" data-cursor="TOPO">
           <span className="brand-mark">JE©</span>
           <span className="brand-sub">{content.meta.roleBadge}</span>

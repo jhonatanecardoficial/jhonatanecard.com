@@ -299,7 +299,7 @@ body.cursor-label-mode .cursor-dot {
 }
 
 /* ============================================================
-   FIXED BLEND-MODE HEADER
+   FIXED SMART FROSTED HEADER (DESKTOP & GLOBAL BASE)
    ============================================================ */
 .site-header {
   position: fixed;
@@ -311,8 +311,25 @@ body.cursor-label-mode .cursor-dot {
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   padding: 1.25rem var(--pad-x);
-  mix-blend-mode: difference;
   color: #f5f2eb;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: 
+    background 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    padding 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    backdrop-filter 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: background, padding, border-color;
+}
+
+.site-header.is-scrolled {
+  background: rgba(7, 7, 9, 0.92);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 12px 36px -10px rgba(0, 0, 0, 0.55);
+  padding: 0.92rem var(--pad-x);
 }
 
 .brand {
