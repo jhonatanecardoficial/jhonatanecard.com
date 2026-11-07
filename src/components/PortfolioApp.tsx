@@ -174,6 +174,11 @@ export default function PortfolioApp() {
     lenisRef.current = lenis;
 
     lenis.on('scroll', ScrollTrigger.update);
+    const handleLenisScroll = (e: { scroll: number }) => {
+      const shouldScrolled = e.scroll > 24;
+      setIsScrolled((prev) => (prev !== shouldScrolled ? shouldScrolled : prev));
+    };
+    lenis.on('scroll', handleLenisScroll);
 
     const tickerCallback = (time: number) => {
       lenis.raf(time * 1000);
