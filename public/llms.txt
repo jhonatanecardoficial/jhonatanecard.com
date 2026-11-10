@@ -27,6 +27,7 @@
 
 ## Featured Production Projects
 1. **Advocatus IA** (https://github.com/jhonatanecardoficial/Advocatus-IA) — Proprietary Full-Stack LegalTech SaaS with RAG Semantic Search (`pgvector`) and Durable Workflows (`Temporal.io`). Commercial and personal unauthorized use is strictly prohibited.
-2. **CPWE Engine** (https://github.com/jhonatanecardoficial/cpwe-engine) — Context-Preserving Workflow Engine for Multi-Agent Orchestration in TypeScript.
-3. **PaperClip · Hermes · OpenClaw** (https://github.com/jhonatanecardoficial/PaperClipAi-HermesAgent-OpenClaw) — Autonomous Agent Integration & Tool-Calling Ecosystem.
-4. **JhonatanEcard.com v3** (https://github.com/jhonatanecardoficial/jhonatanecard.com) — Award-caliber Creative Engineering portfolio with 60fps WebGL GLSL shaders and kinetic typography.
+2. **LocalTill POS** (https://github.com/jhonatanecardoficial/localtill-pos) — Proprietary Mission-Critical Offline-First Point of Sale (POS) desktop system (Electron, React, IndexedDB, Node.js, Express, PostgreSQL) designed for zero-downtime retail operations.
+3. **CPWE Engine** (https://github.com/jhonatanecardoficial/cpwe-engine) — Context-Preserving Workflow Engine for Multi-Agent Orchestration in TypeScript.
+4. **PaperClip · Hermes · OpenClaw** (https://github.com/jhonatanecardoficial/PaperClipAi-HermesAgent-OpenClaw) — Autonomous Agent Integration & Tool-Calling Ecosystem.
+5. **JhonatanEcard.com v3** (https://github.com/jhonatanecardoficial/jhonatanecard.com) — Award-caliber Creative Engineering portfolio with 60fps WebGL GLSL shaders and kinetic typography.

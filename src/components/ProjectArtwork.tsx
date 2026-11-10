@@ -202,6 +202,206 @@ export default function ProjectArtwork({
     );
   }
 
+  if (projectId === 'localtill-pos') {
+    return (
+      <div className={`project-artwork ${isModal ? 'is-modal' : ''}`}>
+        <svg
+          viewBox="0 0 640 400"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="artwork-svg"
+        >
+          <rect width="640" height="400" fill="#080A0E" />
+          {/* Subtle grid */}
+          <g stroke="rgba(255,255,255,0.05)" strokeWidth="1">
+            <line x1="0" y1="80" x2="640" y2="80" />
+            <line x1="0" y1="160" x2="640" y2="160" />
+            <line x1="0" y1="240" x2="640" y2="240" />
+            <line x1="0" y1="320" x2="640" y2="320" />
+            <line x1="128" y1="0" x2="128" y2="400" />
+            <line x1="256" y1="0" x2="256" y2="400" />
+            <line x1="384" y1="0" x2="384" y2="400" />
+            <line x1="512" y1="0" x2="512" y2="400" />
+          </g>
+
+          {/* Cyan Glow */}
+          <circle cx="320" cy="200" r="160" fill={accentColor} fillOpacity="0.08" />
+
+          {/* Top HUD bar */}
+          <rect
+            x="32"
+            y="26"
+            width="576"
+            height="34"
+            rx="4"
+            fill="#0E1218"
+            stroke="rgba(255,255,255,0.12)"
+          />
+          <circle cx="52" cy="43" r="4" fill={accentColor} />
+          <text
+            x="68"
+            y="47"
+            fill="#F5F2EB"
+            fontFamily="monospace"
+            fontSize="10"
+            letterSpacing="1"
+          >
+            LOCALTILL.POS // OFFLINE-FIRST DESKTOP POS ENGINE
+          </text>
+          <text
+            x="508"
+            y="47"
+            fill={accentColor}
+            fontFamily="monospace"
+            fontSize="9"
+            letterSpacing="1.2"
+          >
+            PROPRIETARY
+          </text>
+
+          {/* Node 1: Desktop Terminal / Touch UI */}
+          <rect
+            x="36"
+            y="88"
+            width="164"
+            height="146"
+            rx="6"
+            fill="#10141D"
+            stroke="rgba(255,255,255,0.16)"
+          />
+          <text x="50" y="112" fill={accentColor} fontFamily="monospace" fontSize="10">
+            01 / DESKTOP TERMINAL
+          </text>
+          <text x="50" y="132" fill="#F5F2EB" fontFamily="sans-serif" fontSize="13" fontWeight="600">
+            Electron 40 + React 18
+          </text>
+          <text x="50" y="152" fill="#8E8B82" fontFamily="monospace" fontSize="9.5">
+            • Virtual Numpad Engine
+          </text>
+          <text x="50" y="170" fill="#8E8B82" fontFamily="monospace" fontSize="9.5">
+            • 44px+ Touch Ergonomics
+          </text>
+          <text x="50" y="188" fill="#8E8B82" fontFamily="monospace" fontSize="9.5">
+            • Thermal Receipt Printer
+          </text>
+          <rect x="50" y="202" width="94" height="18" rx="3" fill="#171D2A" />
+          <text x="56" y="215" fill={accentColor} fontFamily="monospace" fontSize="9">
+            ZERO-DELAY UI
+          </text>
+
+          {/* Flow 1: Immediate Local Commit */}
+          <path d="M200 160 L236 160" stroke={accentColor} strokeWidth="2" strokeDasharray="4 3" />
+          <polygon points="236,156 242,160 236,164" fill={accentColor} />
+
+          {/* Node 2: IndexedDB Local Cache & Sync Engine */}
+          <rect
+            x="238"
+            y="76"
+            width="164"
+            height="170"
+            rx="6"
+            fill="#121822"
+            stroke={accentColor}
+            strokeWidth="1.4"
+          />
+          <text x="252" y="100" fill={accentColor} fontFamily="monospace" fontSize="10">
+            02 / OFFLINE ENGINE
+          </text>
+          <text x="252" y="120" fill="#F5F2EB" fontFamily="sans-serif" fontSize="13" fontWeight="600">
+            IndexedDB + Sync
+          </text>
+          <text x="252" y="140" fill="#8E8B82" fontFamily="monospace" fontSize="9.5">
+            • Zero-Downtime Cache
+          </text>
+          <text x="252" y="158" fill="#8E8B82" fontFamily="monospace" fontSize="9.5">
+            • Immediate Local Writes
+          </text>
+          <text x="252" y="176" fill="#8E8B82" fontFamily="monospace" fontSize="9.5">
+            • Async Batch Queue
+          </text>
+          <text x="252" y="194" fill="#8E8B82" fontFamily="monospace" fontSize="9.5">
+            • Exponential Backoff
+          </text>
+          <rect x="252" y="210" width="134" height="20" rx="3" fill="rgba(0,229,255,0.12)" />
+          <text x="258" y="224" fill={accentColor} fontFamily="monospace" fontSize="9">
+            OFFLINE CONTINUITY
+          </text>
+
+          {/* Flow 2: LAN Sync */}
+          <path d="M402 160 L438 160" stroke={accentColor} strokeWidth="2" strokeDasharray="4 3" />
+          <polygon points="438,156 444,160 438,164" fill={accentColor} />
+
+          {/* Node 3: Local Master Server / Database */}
+          <rect
+            x="440"
+            y="88"
+            width="164"
+            height="146"
+            rx="6"
+            fill="#10141D"
+            stroke="rgba(255,255,255,0.16)"
+          />
+          <text x="454" y="112" fill={accentColor} fontFamily="monospace" fontSize="10">
+            03 / LOCAL MASTER
+          </text>
+          <text x="454" y="132" fill="#F5F2EB" fontFamily="sans-serif" fontSize="13" fontWeight="600">
+            Express + PostgreSQL
+          </text>
+          <text x="454" y="152" fill="#8E8B82" fontFamily="monospace" fontSize="9.5">
+            • Strict ACID Reconcile
+          </text>
+          <text x="454" y="170" fill="#8E8B82" fontFamily="monospace" fontSize="9.5">
+            • Shift & Cash Drawers
+          </text>
+          <text x="454" y="188" fill="#8E8B82" fontFamily="monospace" fontSize="9.5">
+            • mDNS / Bonjour Discovery
+          </text>
+          <rect x="454" y="202" width="116" height="18" rx="3" fill="#171D2A" />
+          <text x="460" y="215" fill={accentColor} fontFamily="monospace" fontSize="9">
+            IMMUTABLE AUDIT
+          </text>
+
+          {/* Bottom Telemetry HUD */}
+          <rect
+            x="36"
+            y="266"
+            width="568"
+            height="102"
+            rx="6"
+            fill="#0D1017"
+            stroke="rgba(255,255,255,0.1)"
+          />
+          <text x="52" y="290" fill={accentColor} fontFamily="monospace" fontSize="9.5" letterSpacing="1.2">
+            MISSION-CRITICAL SPECIFICATIONS & HARDWARE INTEGRATION
+          </text>
+
+          <g transform="translate(52, 304)">
+            <text x="0" y="14" fill="#F5F2EB" fontFamily="sans-serif" fontSize="10.5" fontWeight="600">
+              Zero Operational Downtime
+            </text>
+            <text x="0" y="30" fill="#8E8B82" fontFamily="monospace" fontSize="8.5">
+              Local writes never block cashier queues
+            </text>
+
+            <text x="185" y="14" fill="#F5F2EB" fontFamily="sans-serif" fontSize="10.5" fontWeight="600">
+              Virtual Numpad Engine
+            </text>
+            <text x="185" y="30" fill="#8E8B82" fontFamily="monospace" fontSize="8.5">
+              Touch auto-detection + 44px+ keypad
+            </text>
+
+            <text x="365" y="14" fill="#F5F2EB" fontFamily="sans-serif" fontSize="10.5" fontWeight="600">
+              mDNS / Bonjour Zero-Config
+            </text>
+            <text x="365" y="30" fill="#8E8B82" fontFamily="monospace" fontSize="8.5">
+              LAN terminal discovery & pairing
+            </text>
+          </g>
+        </svg>
+      </div>
+    );
+  }
+
   if (projectId === 'cpwe-engine') {
     return (
       <div className={`project-artwork ${isModal ? 'is-modal' : ''}`}>

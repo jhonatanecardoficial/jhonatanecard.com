@@ -223,9 +223,9 @@ export const portfolioData: Record<Locale, PortfolioContent> = {
           label: 'Especializações de Pós & MBA em Eng. de Software com IA (Full Cycle & Anhanguera)',
         },
         {
-          value: 4,
+          value: 5,
           suffix: '',
-          label: 'Projetos autorais de IA, Motores de Workflow & SaaS',
+          label: 'Projetos autorais em produção (IA, POS, Motores & SaaS)',
         },
       ],
     },
@@ -311,8 +311,70 @@ export const portfolioData: Record<Locale, PortfolioContent> = {
           ],
         },
         {
-          id: 'cpwe-engine',
+          id: 'localtill-pos',
           num: '02',
+          title: 'LocalTill POS',
+          subtitle: 'Sistema de Ponto de Venda Offline-First de Missão Crítica para Varejo',
+          category: 'SaaS · Desktop & POS · Offline-First · Resiliência',
+          year: '2026',
+          clientOrContext: 'Produto Autoral em Produção Ativa',
+          role: 'Arquiteto & Desenvolvedor Full-Stack',
+          isProprietary: true,
+          licenseBadge: 'Proprietário · Uso Comercial e Pessoal Proibido',
+          licenseNote:
+            'Código visível exclusivamente para avaliação técnica de portfólio. Todos os direitos reservados a Jhonatan Ecard. É estritamente proibido copiar, distribuir ou utilizar comercialmente ou para uso próprio sem autorização prévia por escrito.',
+          githubUrl: 'https://github.com/jhonatanecardoficial/localtill-pos',
+          accentColor: '#00E5FF',
+          summary:
+            'Sistema de Ponto de Venda (PDV) moderno, resiliente e de missão crítica, concebido com arquitetura Offline-First em Electron, React, TypeScript e PostgreSQL. Opera com zero downtime mesmo sob instabilidade total de conexão.',
+          challenge:
+            'Em balcões de varejo e eventos de alto volume, falhas de conectividade ou latências de rede interrompem filas de atendimento, corrompem pedidos em andamento e geram perdas financeiras imediatas. O desafio foi desenhar uma infraestrutura que garantisse operação ininterrupta do caixa com conciliação posterior estrita.',
+          architectureSolution:
+            'Arquitetura híbrida desacoplada com Electron 40 nativo (Windows/macOS) e front-end React 18: vendas são gravadas instantaneamente no IndexedDB local antes de qualquer round-trip de rede. Um Sync Manager assíncrono sincroniza a fila com a API REST Express conectada ao PostgreSQL local/master via pool resiliente, com auto-descoberta de rede via protocolo mDNS / Bonjour.',
+          highlights: [
+            'Arquitetura Offline-First com escrita imediata em IndexedDB e sincronização assíncrona tolerante a falhas.',
+            'Virtual Numpad Engine com detecção automática de hardware touch e botões ergonômicos de 44px+ para balcão.',
+            'Controle financeiro rigoroso com abertura, fechamento de turno, suprimentos, sangrias e cálculo dinâmico de troco.',
+            'Auto-discovery de terminais na rede local via protocolo mDNS/Bonjour sem necessidade de IP fixo.',
+          ],
+          stack: [
+            'Electron 40',
+            'React 18',
+            'TypeScript 5.8',
+            'IndexedDB',
+            'Node.js',
+            'Express',
+            'PostgreSQL 16',
+            'Tailwind CSS',
+            'shadcn/ui',
+            'mDNS / Bonjour',
+          ],
+          architectureNodes: [
+            {
+              layer: '01 · Terminal Desktop / UI',
+              tech: 'Electron 40 + React 18 + shadcn/ui',
+              detail: 'Interface responsiva para balcão touch e teclado físico, cálculo em tempo real e cupons térmicos.',
+            },
+            {
+              layer: '02 · Armazenamento Offline-First',
+              tech: 'IndexedDB Local Cache',
+              detail: 'Persistência instantânea de vendas e catálogo no cliente, garantindo zero travamentos sem rede.',
+            },
+            {
+              layer: '03 · Motor de Sincronização & Rede',
+              tech: 'Sync Manager Engine + mDNS / Bonjour',
+              detail: 'Fila de conciliação assíncrona, retry com backoff exponencial e auto-discovery de servidores na LAN.',
+            },
+            {
+              layer: '04 · Servidor Local & Persistência Relacional',
+              tech: 'Express API + PostgreSQL 16',
+              detail: 'Transações ACID estritas, controle de turnos de caixa, auditoria imutável e constraints relacionais.',
+            },
+          ],
+        },
+        {
+          id: 'cpwe-engine',
+          num: '03',
           title: 'CPWE Engine',
           subtitle: 'Context-Preserving Workflow Engine para Orquestração de Agentes de IA',
           category: 'AI Infrastructure · Workflow Engine · TypeScript',
@@ -363,7 +425,7 @@ export const portfolioData: Record<Locale, PortfolioContent> = {
         },
         {
           id: 'paperclip-hermes-openclaw',
-          num: '03',
+          num: '04',
           title: 'PaperClip · Hermes · OpenClaw',
           subtitle: 'Ecossistema de Integração de Agentes Autônomos & Tool-Calling',
           category: 'Agentes Autônomos · Automação · MCP',
@@ -414,7 +476,7 @@ export const portfolioData: Record<Locale, PortfolioContent> = {
         },
         {
           id: 'jhonatanecard-com',
-          num: '04',
+          num: '05',
           title: 'JhonatanEcard.com (v3)',
           subtitle: 'Engenharia Criativa, WebGL GLSL Shaders & Tipografia Cinética',
           category: 'Creative Engineering · WebGL · Next.js 15',
@@ -766,9 +828,9 @@ export const portfolioData: Record<Locale, PortfolioContent> = {
           label: 'Postgrad & MBA Specializations in Software Eng. with AI (Full Cycle & Anhanguera)',
         },
         {
-          value: 4,
+          value: 5,
           suffix: '',
-          label: 'Original AI, Workflow Engine & Full-Stack SaaS Projects',
+          label: 'Original production projects (AI, POS, Engines & SaaS)',
         },
       ],
     },
@@ -854,8 +916,70 @@ export const portfolioData: Record<Locale, PortfolioContent> = {
           ],
         },
         {
-          id: 'cpwe-engine',
+          id: 'localtill-pos',
           num: '02',
+          title: 'LocalTill POS',
+          subtitle: 'Mission-Critical Offline-First Point of Sale (POS) System for Retail',
+          category: 'SaaS · Desktop & POS · Offline-First · Resilient Systems',
+          year: '2026',
+          clientOrContext: 'Active Production Authorial Product',
+          role: 'Full-Stack Architect & Developer',
+          isProprietary: true,
+          licenseBadge: 'Proprietary · Commercial & Personal Use Prohibited',
+          licenseNote:
+            'Source code is public strictly for technical portfolio evaluation. All rights reserved by Jhonatan Ecard. Commercial or personal reproduction, distribution, or unauthorized use is strictly prohibited without prior written permission.',
+          githubUrl: 'https://github.com/jhonatanecardoficial/localtill-pos',
+          accentColor: '#00E5FF',
+          summary:
+            'Modern, resilient, mission-critical Point of Sale (POS) software built with an Offline-First architecture using Electron, React, TypeScript, and PostgreSQL. Ensures zero operational downtime even during total network or internet outages.',
+          challenge:
+            'In busy retail checkouts and pop-up events, network latency or internet drops freeze transaction queues, disrupt cashiers, and directly cause lost revenue. The challenge was building an architecture that guarantees continuous POS operations with deterministic transactional reconciliation.',
+          architectureSolution:
+            'Decoupled hybrid architecture pairing native Electron 40 (Windows/macOS) with a React 18 UI: all transactions commit immediately to client-side IndexedDB before any network I/O. An asynchronous Sync Manager flushes pending batches to a local Express API backed by PostgreSQL connection pooling, with zero-config terminal discovery via mDNS / Bonjour.',
+          highlights: [
+            'Offline-First architecture with immediate local IndexedDB persistence and resilient background sync queues.',
+            'Virtual Numpad Engine with automatic touch device detection and 44px+ accessible touch keypad ergonomics.',
+            'Strict cash drawer auditability: shift open/close, supplies, bleed audits, and thermal receipt change calculation.',
+            'Local network terminal auto-discovery via mDNS/Bonjour protocol eliminating manual IP configurations.',
+          ],
+          stack: [
+            'Electron 40',
+            'React 18',
+            'TypeScript 5.8',
+            'IndexedDB',
+            'Node.js',
+            'Express',
+            'PostgreSQL 16',
+            'Tailwind CSS',
+            'shadcn/ui',
+            'mDNS / Bonjour',
+          ],
+          architectureNodes: [
+            {
+              layer: '01 · Desktop Terminal / UI',
+              tech: 'Electron 40 + React 18 + shadcn/ui',
+              detail: 'Responsive interface optimized for touch checkouts and physical numpads, live cart totals, and thermal print.',
+            },
+            {
+              layer: '02 · Offline-First Storage',
+              tech: 'Client IndexedDB Cache',
+              detail: 'Instant local commits for sales and catalog data, eliminating operational bottlenecks during outages.',
+            },
+            {
+              layer: '03 · Sync Engine & Network Protocol',
+              tech: 'Sync Manager Engine + mDNS / Bonjour',
+              detail: 'Asynchronous reconciliation queue, exponential backoff retries, and LAN auto-discovery.',
+            },
+            {
+              layer: '04 · Local Master Server & Relational DB',
+              tech: 'Express API + PostgreSQL 16',
+              detail: 'Strict ACID transactions, register shift tracking, immutable audit logs, and relational constraints.',
+            },
+          ],
+        },
+        {
+          id: 'cpwe-engine',
+          num: '03',
           title: 'CPWE Engine',
           subtitle: 'Context-Preserving Workflow Engine for Multi-Agent Orchestration',
           category: 'AI Infrastructure · Workflow Engine · TypeScript',
@@ -906,7 +1030,7 @@ export const portfolioData: Record<Locale, PortfolioContent> = {
         },
         {
           id: 'paperclip-hermes-openclaw',
-          num: '03',
+          num: '04',
           title: 'PaperClip · Hermes · OpenClaw',
           subtitle: 'Autonomous Agent Integration & Tool-Calling Ecosystem',
           category: 'Autonomous Agents · Automation · MCP',
@@ -957,7 +1081,7 @@ export const portfolioData: Record<Locale, PortfolioContent> = {
         },
         {
           id: 'jhonatanecard-com',
-          num: '04',
+          num: '05',
           title: 'JhonatanEcard.com (v3)',
           subtitle: 'Creative Engineering, WebGL GLSL Shaders & Kinetic Typography',
           category: 'Creative Engineering · WebGL · Next.js 15',

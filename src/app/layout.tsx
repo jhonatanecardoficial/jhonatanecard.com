@@ -40,6 +40,9 @@ export const metadata: Metadata = {
     'Centro Universitário de Belo Horizonte Computer Science',
     'React Next.js TypeScript',
     'NestJS Temporal.io pgvector RAG',
+    'LocalTill POS',
+    'Offline-First POS System',
+    'Electron React PostgreSQL POS',
     'Desenvolvedor de Software IA',
   ],
   authors: [{ name: 'Jhonatan Ecard', url: 'https://jhonatanecard.com' }],
@@ -189,6 +192,15 @@ export default function RootLayout({
           {
             '@type': 'SoftwareSourceCode',
             position: 2,
+            name: 'LocalTill POS',
+            description:
+              'Proprietary Mission-Critical Offline-First Point of Sale (POS) System with Electron, React, IndexedDB and PostgreSQL.',
+            codeRepository: 'https://github.com/jhonatanecardoficial/localtill-pos',
+            programmingLanguage: ['TypeScript', 'Electron', 'React', 'PostgreSQL'],
+          },
+          {
+            '@type': 'SoftwareSourceCode',
+            position: 3,
             name: 'CPWE Engine',
             description:
               'Context-Preserving Workflow Engine for Multi-Agent Orchestration.',
@@ -197,13 +209,22 @@ export default function RootLayout({
           },
           {
             '@type': 'SoftwareSourceCode',
-            position: 3,
+            position: 4,
             name: 'PaperClip · Hermes · OpenClaw',
             description:
               'Autonomous Agent Integration & Tool-Calling Ecosystem.',
             codeRepository:
               'https://github.com/jhonatanecardoficial/PaperClipAi-HermesAgent-OpenClaw',
             programmingLanguage: ['Python', 'TypeScript'],
+          },
+          {
+            '@type': 'SoftwareSourceCode',
+            position: 5,
+            name: 'JhonatanEcard.com (v3)',
+            description:
+              'Creative Engineering Portfolio with 60fps WebGL GLSL fragment shaders, variable font physics and Next.js 15.',
+            codeRepository: 'https://github.com/jhonatanecardoficial/jhonatanecard.com',
+            programmingLanguage: ['TypeScript', 'WebGL', 'GLSL', 'Next.js', 'Tailwind'],
           },
         ],
       },
